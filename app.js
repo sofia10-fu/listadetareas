@@ -1,6 +1,5 @@
 const express = require('express');
 const conectarDB = require('./config/db');
-
 const tareasRutas = require('./routes/tareas.route');
 
 const app = express();
@@ -14,6 +13,7 @@ app.use(express.json());
 // Rutas
 app.use('/api/tareas', tareasRutas);
 
-app.listen(3000, () => {
-  console.log("Servidor corriendo en el puerto 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
